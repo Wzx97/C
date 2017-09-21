@@ -1,0 +1,30 @@
+#include <stdio.h>
+int main(void)
+{
+	int BJT_time;
+	int UTC_time;
+	int h,m;
+	scanf("%d",&BJT_time);
+	if(BJT_time <= 2359)
+	{
+		h = BJT_time / 100;
+		m = ((BJT_time)/10 % 10)*10 + (BJT_time % 10);
+		if( h < 0 )
+		{
+			printf("输入错误");
+		}
+		else if(h<8)
+		{
+			h = 12 - ( 8 - h );
+			UTC_time = (h*100)+m;
+			printf("%d",UTC_time);
+		}
+		else
+		{
+			h = h - 8;
+			UTC_time = (h*100)+m;
+			printf("%d",UTC_time);
+		}
+	}
+	return 0;
+}
